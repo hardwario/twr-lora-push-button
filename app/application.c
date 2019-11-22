@@ -125,6 +125,14 @@ void lora_callback(bc_cmwx1zzabz_t *self, bc_cmwx1zzabz_event_t event, void *eve
     {
         bc_led_set_mode(&led, BC_LED_MODE_OFF);
     }
+    else if (event == BC_CMWX1ZZABZ_EVENT_JOIN_SUCCESS)
+    {
+        bc_atci_printf("$JOIN_OK");
+    }
+    else if (event == BC_CMWX1ZZABZ_EVENT_JOIN_ERROR)
+    {
+        bc_atci_printf("$JOIN_ERROR");
+    }
 }
 
 bool at_send(void)
